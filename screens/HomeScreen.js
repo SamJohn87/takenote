@@ -6,7 +6,7 @@ import goalsImg from '../assets/alexa-williams-YwBX02K60A4-unsplash.jpg';
 
 function HomeScreen({ navigation }) {
     return (
-        <ScrollView style={{ backgroundColor: '#e5d6eb' }}>
+        <ScrollView style={{ flex: 1,backgroundColor: '#e5d6eb' }}>
             <View style={{ alignItems: 'center' }}>
                 <Image source={logo} style={{
                     height: 150,
@@ -19,15 +19,27 @@ function HomeScreen({ navigation }) {
             </View>
             <View>
                 <Pressable onPress={() => navigation.navigate('Notes')}>
-                    <Card containerStyle={{ padding: 0, borderRadius: 10 }}                    >
+                    <Card containerStyle={{
+                        padding: 0, borderRadius: 10, shadowColor: 'black',
+                        shadowOpacity: 0.26,
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowRadius: 10,
+                        elevation: 10
+                    }}                    >
                         <Card.Image source={notesImg} style={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
                         <Text style={{ margin: 20, color: '#2d054d' }}>Notes</Text>
                     </Card>
                 </Pressable>
             </View>
-            <View>
+            <View style={{ marginBottom: 20}}>
                 <Pressable onPress={() => navigation.navigate('Goals')}>
-                    <Card containerStyle={{ padding: 0, borderRadius: 10 }}>
+                    <Card containerStyle={{
+                        padding: 0, borderRadius: 10, shadowColor: 'black',
+                        shadowOpacity: 0.26,
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowRadius: 10,
+                        elevation: 10
+                    }}>
                         <Card.Image source={goalsImg} style={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
                         <Text style={{ margin: 20, color: '#2d054d' }}>Goals</Text>
                     </Card>
