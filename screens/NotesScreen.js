@@ -29,7 +29,7 @@ function NotesScreen() {
                     <Card containerStyle={{ padding: 0, borderRadius: 10 }}>
                         <View style={styles.blockquoteContainer}>
                             <Text style={styles.blockquoteText}>Note-taking not only focuses the mind but also enables a listener to review the material later.</Text>
-                            <Text style={{ fontSize: 10, fontStyle: 'italic' }}>- g 2/09 pp. 26-29 - Awake!—2009</Text>
+                            <Text style={{ fontSize: 10 }}>- g 2/09 pp. 26-29 - Awake!—2009</Text>
                         </View>
                     </Card>
                 </Animatable.View>

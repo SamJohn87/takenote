@@ -19,16 +19,16 @@ function HomeScreen({ navigation }) {
             </View>
             <View>
                 <Pressable onPress={() => navigation.navigate('Notes')}>
-                    <Card containerStyle={{ padding: 0 }}                    >
-                        <Card.Image source={notesImg} />
+                    <Card containerStyle={{ padding: 0, borderRadius: 10 }}                    >
+                        <Card.Image source={notesImg} style={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
                         <Text style={{ margin: 20, color: '#2d054d' }}>Notes</Text>
                     </Card>
                 </Pressable>
             </View>
             <View>
                 <Pressable onPress={() => navigation.navigate('Goals')}>
-                    <Card containerStyle={{ padding: 0 }}>
-                        <Card.Image source={goalsImg} />
+                    <Card containerStyle={{ padding: 0, borderRadius: 10 }}>
+                        <Card.Image source={goalsImg} style={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
                         <Text style={{ margin: 20, color: '#2d054d' }}>Goals</Text>
                     </Card>
                 </Pressable>
