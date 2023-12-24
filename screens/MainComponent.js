@@ -17,11 +17,10 @@ const HomeNavigator = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
-                name='Home'
+                name='HomeScreen'
                 component={HomeScreen}
             />
         </Stack.Navigator>
-
     );
 };
 
@@ -30,18 +29,8 @@ const NotesNavigator = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
-                name='notes'
+                name='NotesScreen'
                 component={NotesScreen}
-                options={({ navigation }) => ({
-                    headerLeft: () => (
-                        <Icon
-                            name='notes'
-                            type='font-awesome'
-                            iconStyle={styles.stackIcon}
-                            onPress={() => navigation.toggleDrawer()}
-                        />
-                    )
-                })}
             />
         </Stack.Navigator>
     );
@@ -52,18 +41,8 @@ const GoalsNavigator = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
-                name='Goals'
+                name='GoalsScreen'
                 component={GoalsScreen}
-                options={({ navigation }) => ({
-                    headerLeft: () => (
-                        <Icon
-                            name='Goals'
-                            type='font-awesome'
-                            iconStyle={styles.stackIcon}
-                            onPress={() => navigation.toggleDrawer()}
-                        />
-                    )
-                })}
             />
         </Stack.Navigator>
     );
@@ -79,6 +58,12 @@ const CustomDrawerContent = (props) => (
                 <Text style={styles.drawerHeaderText}>Takenote</Text>
             </View>
         </View>
+        <View
+            style={{
+                borderBottomColor: 'black',
+                borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+        />
         <DrawerItemList {...props} labelStyle={{ fontWeight: 'bold' }} />
     </DrawerContentScrollView>
 );
@@ -92,12 +77,13 @@ function MainComponent() {
         }}>
             <Drawer.Navigator
                 initialRouteName='Home'
-                drawerContent={CustomDrawerContent}         
+                drawerContent={CustomDrawerContent}
             >
                 <Drawer.Screen
                     name='Home'
                     component={HomeNavigator}
                     options={{
+                        drawerActiveTintColor: '#b464dc',
                         drawerIcon: ({ color }) => (
                             <Icon
                                 name='home'
@@ -105,7 +91,7 @@ function MainComponent() {
                                 size={24}
                                 iconStyle={{ width: 24 }}
                                 color={color}
-                            ></Icon>
+                            />
                         )
                     }}
                 />
@@ -113,6 +99,7 @@ function MainComponent() {
                     name='Notes'
                     component={NotesNavigator}
                     options={{
+                        drawerActiveTintColor: '#b464dc',
                         drawerIcon: ({ color }) => (
                             <Icon
                                 name='note-multiple'
@@ -120,7 +107,7 @@ function MainComponent() {
                                 size={24}
                                 iconStyle={{ width: 24 }}
                                 color={color}
-                            ></Icon>
+                            />
                         )
                     }}
                 />
@@ -128,6 +115,7 @@ function MainComponent() {
                     name='Goals'
                     component={GoalsNavigator}
                     options={{
+                        drawerActiveTintColor: '#b464dc',
                         drawerIcon: ({ color }) => (
                             <Icon
                                 name='bullseye-arrow'
@@ -135,7 +123,7 @@ function MainComponent() {
                                 size={24}
                                 iconStyle={{ width: 24 }}
                                 color={color}
-                            ></Icon>
+                            />
                         )
                     }}
                 />

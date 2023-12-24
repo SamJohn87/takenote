@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, Button, Modal, TextInput } from 'react-native';
 import { Card, Icon, Input } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
 
 function NotesScreen() {
     const [showModal, setShowModal] = useState(false);
@@ -13,7 +14,6 @@ function NotesScreen() {
         setShowModal(!showModal);
     };
 
-
     const resetForm = () => {
         setTitle('');
         setNote('');
@@ -22,14 +22,17 @@ function NotesScreen() {
     return (
         <>
             <ScrollView style={{ flex: 1, backgroundColor: '#e5d6eb' }}>
-                <View>
+                <Animatable.View
+                    animation='zoomInDown'
+                    duration={1500}
+                >
                     <Card containerStyle={{ padding: 0, borderRadius: 10 }}>
                         <View style={styles.blockquoteContainer}>
                             <Text style={styles.blockquoteText}>Note-taking not only focuses the mind but also enables a listener to review the material later.</Text>
-                            <Text style={{ fontWeight: 'italic' }}>- g 2/09 pp. 26-29 - Awake!—2009</Text>
+                            <Text style={{ fontSize: 10, fontStyle: 'italic' }}>- g 2/09 pp. 26-29 - Awake!—2009</Text>
                         </View>
                     </Card>
-                </View>
+                </Animatable.View>
                 <View style={{ marginTop: 10, flexDirection: 'row-reverse', marginLeft: 20 }}>
                     <Icon
                         name='note-search'
@@ -105,12 +108,12 @@ const styles = StyleSheet.create({
         borderLeftColor: '#333',
         paddingHorizontal: 10,
         paddingVertical: 8,
-        margin: 10,
+        margin: 10
     },
     blockquoteText: {
         fontStyle: 'italic',
         fontSize: 16,
-        color: '#333',
+        color: '#2d054d'
     },
     modal: {
         justifyContent: 'center',

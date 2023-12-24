@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, Modal, Button } from 'react-native';
 import { Card, Icon, Input } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
 
 function GoalsScreen() {
     const [showModal, setShowModal] = useState(false);
@@ -19,14 +20,17 @@ function GoalsScreen() {
     return (
         <>
             <ScrollView style={{ flex: 1, backgroundColor: '#e5d6eb' }}>
-                <View>
+                <Animatable.View
+                    animation='zoomInRight'
+                    duration={1500}
+                >
                     <Card containerStyle={{ padding: 0, borderRadius: 10 }}>
                         <View style={styles.blockquoteContainer}>
                             <Text style={styles.blockquoteText}>Setting goals aids progress and strengthens purpose.</Text>
-                            <Text style={{ fontWeight: 'italic' }}>- g80 10/22 pp. 6-7 - Awake!—1980</Text>
+                            <Text style={{ fontStyle: 'italic', fontSize: 10 }}>- g80 10/22 pp. 6-7 - Awake!—1980</Text>
                         </View>
                     </Card>
-                </View>
+                </Animatable.View>
                 <View style={{ marginTop: 10, flexDirection: 'row-reverse', marginLeft: 20 }}>
 
                     <Icon
@@ -57,6 +61,12 @@ function GoalsScreen() {
                         onChangeText={(title) => setGoalTitle(title)}
                         value={goalTitle}
                     />
+                    <View>
+                        <Input
+                            placeholder='To do...'
+                            rightIcon={{ type: 'entypo', name: 'add-to-list' }}
+                        />
+                    </View>
                     <ScrollView>
                     </ScrollView>
                     <View style={{ margin: 10 }}>
@@ -95,12 +105,12 @@ const styles = StyleSheet.create({
         borderLeftColor: '#333',
         paddingHorizontal: 10,
         paddingVertical: 8,
-        margin: 10,
+        margin: 10
     },
     blockquoteText: {
         fontStyle: 'italic',
         fontSize: 16,
-        color: '#333',
+        color: '#2d054d'
     },
     modal: {
         justifyContent: 'center',
