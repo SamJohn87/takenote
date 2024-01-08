@@ -14,3 +14,8 @@ React Native Elements | React Navigation | React Native Animatable | Expo
 ## About Me?
 
 Feel free to explore my [personal website](https://samjohn87.github.io/) to learn more about me and discover some of my other projects.
+
+## Visuals
+
+![Alt text](assets/takenote_homepage_2.png)
+![Alt text](assets/takenote_menu.png)
