@@ -1,10 +1,23 @@
+import { useState, useEffect } from 'react';
 import { View, Text, ScrollView, Image, Pressable } from 'react-native';
+import * as SecureStore from 'expo-secure-store';
 import { Card } from 'react-native-elements';
 import logo from '../assets/takenote-logo.png';
 import notesImg from '../assets/diana-polekhina-1ixT36dfuSQ-unsplash.jpg';
 import goalsImg from '../assets/alexa-williams-YwBX02K60A4-unsplash.jpg';
 
 function HomeScreen({ navigation }) {
+    const [username, setUsername] = useState('');
+
+    useEffect(() => {
+        SecureStore.getItemAsync('userinfo').then((userdata) => {
+            const userinfo = JSON.parse(userdata);
+            if (userinfo) {
+                setUsername(userinfo.username);
+            }
+        })
+    }, []);
+
     return (
         <ScrollView style={{ flex: 1,backgroundColor: '#e5d6eb' }}>
             <View style={{ alignItems: 'center' }}>
@@ -15,7 +28,7 @@ function HomeScreen({ navigation }) {
                 }} />
                 <Text style={{
                     paddingBottom: 10, color: '#2d054d'
-                }}> Welcome to Takenote</Text>
+                }}> Welcome to Takenote {username}</Text>
             </View>
             <View>
                 <Pressable onPress={() => navigation.navigate('Notes')}>

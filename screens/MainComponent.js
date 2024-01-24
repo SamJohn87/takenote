@@ -72,8 +72,8 @@ const CustomDrawerContent = (props) => (
 function MainComponent() {
     return (
         <View style={{
-            flex: 1,
-            paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+            flex: 1
+            //paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
         }}>
             <Drawer.Navigator
                 initialRouteName='Home'
@@ -83,6 +83,7 @@ function MainComponent() {
                     name='Home'
                     component={HomeNavigator}
                     options={{
+                        //headerShown: false,
                         drawerActiveTintColor: '#b464dc',
                         drawerIcon: ({ color }) => (
                             <Icon
